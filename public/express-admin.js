@@ -244,5 +244,10 @@ $(function () {
 
     // datepicker
     initDatetimePickers('static', document);
+	
+	$('img').on('click', function (e) {
+	    $(this).closest('div').next().find('input').removeAttr('disabled').show();
+    });
+
 });
 })(jQuery);
