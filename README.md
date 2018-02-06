@@ -21,7 +21,7 @@
 
 # License
 
-The MIT License (MIT)
+The MIT License (MITS)
 
 Copyright (c) 2012-2017 Simeon Velichkov &lt;simeonvelichkov@gmail.com&gt;
 
