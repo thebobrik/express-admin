@@ -89,25 +89,47 @@
     {{/file}}
 
 
-	{{#image}}
-		<div class="col-sm-4 col-md-4 col-lg-4">
+	{{#image_old}}
+		<div class="col-sm-1 col-md-1 col-lg-1">
 			<img src="{{value}}" width="80px" height="80px">
 		</div>
 
-		<div class="col-sm-4 col-md-4 col-lg-3">
+		<div class="col-sm-7 col-md-7 col-lg-6">
+			<input type="button" value="del">
+
+			<input readonly type="text" name="{{key}}" value="{{value}}" style="width: 100%"/>
+			<br>
 			<input disabled type="file" name="{{key}}" style="display: none"/>
 		</div>
+	{{/image_old}}
+
+	{{#image}}
+			<div class="col-sm-1 col-md-1 col-lg-1">
+				<img src="{{value}}" width="80px" height="80px">
+			</div>
+
+			<div class="col-sm-7 col-md-7 col-lg-6">
+				<input readonly type="text" name="{{key}}" value="{{value}}" class="form-control" style="width: 100%"/>
+				<br>
+				<input type="file" name="{{key}}" value="" class="form-control" style="width: 80%"/>
+			</div>
 	{{/image}}
 
-	{{#image_upload}}
-		<div class="col-sm-4 col-md-4 col-lg-4">
+
+	{{#gallery}}
+		<div class="col-sm-1 col-md-1 col-lg-1">
 			<img src="{{value}}" width="80px" height="80px">
 		</div>
 
-		<div class="col-sm-4 col-md-4 col-lg-3">
-			<input type="file" name="{{key}}"/>
+		<div class="col-sm-7 col-md-7 col-lg-6">
+			<input readonly type="text" name="{{key}}" value="{{value}}" class="form-control" style="width: 100%"/>
+			<br>
+			<input type="file" name="{{key}}" value="" class="form-control" style="width: 80%"/>
+			<div onclick="this.childNodes[1].disabled=false" >
+			</div>
 		</div>
-	{{/image_upload}}
+	{{/gallery}}
+
 
 	{{#image_list}}
 		{{#value}}
@@ -115,7 +137,7 @@
 				<img src="{{ . }}" width="400px" height="400px">
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-3">
-				<input disabled type="file" name="{{.}}" style="display: none"/>
+				&nbsp;
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				&nbsp;
