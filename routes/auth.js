@@ -15,8 +15,8 @@ exports.status = function (req, res, next) {
 };
 
 exports.restrict = function (req, res, next) {
-	// //todo: disable after
-	// return next();
+	//todo: disable after
+	return next();
     if (res.locals._admin.debug) return next();
 
     if (req.session.user) return next();
