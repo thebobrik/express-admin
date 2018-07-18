@@ -12,17 +12,17 @@ exports.status = function (req, res, next) {
     delete req.session.success;
     delete req.session.username;
     next();
-}
+};
 
 exports.restrict = function (req, res, next) {
-	//todo: disable after
-	return next();
+	// //todo: disable after
+	// return next();
     if (res.locals._admin.debug) return next();
 
     if (req.session.user) return next();
     req.session.error = res.locals.string['access-denied'];
     res.redirect(res.locals.root+'/login');
-}
+};
 
 exports.login = function (req, res) {
     // query the db for the given username
@@ -55,7 +55,7 @@ exports.login = function (req, res) {
             res.redirect(res.locals.root+'/');
         });
     });
-}
+};
 
 exports.logout = function (req, res) {
     // destroy the user's session to log them out
@@ -64,4 +64,4 @@ exports.logout = function (req, res) {
         // successfully logged out
         res.redirect(res.locals.root+'/login');
     });
-}
+};
