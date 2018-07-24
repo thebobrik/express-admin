@@ -12,7 +12,7 @@ function getArgs (req, res) {
         debug    : res.locals._admin.debug,
         log      : res.locals._admin.log,
         slug     : req.params[0],
-        id       : req.params[1] == 'add' ? null : req.params[1].split(','),
+        id       : req.params[1] === 'add' ? null : req.params[1].split(','),
         data     : req.body,
         upload   : req.files,
         upath    : res.locals._admin.config.app.upload
@@ -126,13 +126,13 @@ function render (req, res, next, data, args) {
     data.oneToOne.type = 'one';
     data.manyToOne.type = 'many';
     res.locals.inline = [data.oneToOne, data.manyToOne];
-        
+
     res.locals.partials = {
         content:  'editview',
         view:     'editview/view',
         inline:   'editview/inline',
         column:   'editview/column'
     };
-    
+
     next();
 }
